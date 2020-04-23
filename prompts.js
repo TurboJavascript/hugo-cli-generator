@@ -1,8 +1,14 @@
 module.exports = [
-  // {
-  //   name: `addExample`,
-  //   type: 'confirm',
-  //   message: '是否添加示例组件到项目views目录？',
-  //   default: false,
-  // },
+  {
+    name: `addRoute`,
+    type: 'confirm',
+    message: '是否添加路由配置？',
+    default: false,
+  },
+  {
+    name: `addUtil`,
+    type: 'confirm',
+    message: '是否添加通用util？',
+    default: false,
+  }
 ]
