@@ -1,0 +1,14 @@
+{
+  "name": "vue-cli-plugin-hugo-generator",
+  "description": "A vue-cli plugin",
+  "authors": "hugo",
+  "version": "0.1.1",
+  "main": "index.js",
+  "keywords": [
+    "vue",
+    "vue-cli",
+    "axios",
+    "fetch"
+  ],
+  "dependencies": {}
+}
