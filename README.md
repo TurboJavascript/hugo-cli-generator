@@ -4,6 +4,10 @@
 https://cli.vuejs.org/zh/dev-guide/plugin-dev.html#service-%E6%8F%92%E4%BB%B6
 https://juejin.im/post/5cb59c4bf265da03a743e979
 
+## 安装方式
+只能在装了vue-cli(3.0以上版本)的环境中使用
+通过`vue add vue-cli-plugin-hugo-generator`或`vue invoke vue-cli-plugin-hugo-generator`安装（需要在项目根目录）
+
 ## 生成的项目目录结构
 ### vue.config.js
 ```
@@ -14,6 +18,9 @@ https://juejin.im/post/5cb59c4bf265da03a743e979
 ##### fetch 接口封装（基于axios)
 ```
 index.js 封装接口请求, 业务逻辑相关
+```
+此处统一处理了返回状态码（res.code）小于0的情况和后端返回404、500等情况，前端页面只需处理正常返回且返回码为0以上的返回
+```
 fetch.js 封装接口请求，请求相关处理
 http.js  接口请求拦截，用于处理重复请求等情况
 ```

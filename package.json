@@ -2,7 +2,7 @@
   "name": "vue-cli-plugin-hugo-generator",
   "description": "A vue-cli plugin",
   "authors": "hugo",
-  "version": "0.1.1",
+  "version": "0.1.3",
   "main": "index.js",
   "keywords": [
     "vue",
@@ -10,5 +10,10 @@
     "axios",
     "fetch"
   ],
-  "dependencies": {}
+  "dependencies": {},
+  "license":"MIT",
+  "repository": {
+		"type": "git",
+		"url": "https://github.com/hugo429586472/hugo-cli-generator"
+	}
 }

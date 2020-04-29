@@ -31,7 +31,7 @@ class Fetch {
       'Accept': '*',
     }
     // if (!needles.without_session) {
-    //   _headers['Authorization'] = Cookies.get(`${config.mode}_pi_auth`'pi_auth')
+    //   _headers['Authorization'] = Cookies.get(`${config.mode}_auth`')
     // }
     _headers['Authorization'] = Cookies.get(`${config.mode}_pi_auth`)
     return _headers
@@ -118,7 +118,7 @@ class Fetch {
   }
 
   // 解密
-  encrypt (text) {
+  decrypt (text) {
     if (!text) {
       return ''
     }
@@ -140,7 +140,7 @@ class Fetch {
     let data = res.data
     if (data.data) {
       // 解密数据
-      // data.data = JSON.parse(this.encrypt(data.data))
+      // data.data = JSON.parse(this.decrypt(data.data))
     }
     return { status: true, data: data, headers: res.headers }
   }
