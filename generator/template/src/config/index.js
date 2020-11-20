@@ -1,5 +1,7 @@
 const mode = process.env.VUE_APP_MODE || 'online'
 
+const projectName = 'test'
+
 const hosts = {
   local: {
     host: 'http://localhost:3031/api'
@@ -29,5 +31,5 @@ const domains = {
 
 const vuex_key = 'hugo-vuex'
 
-const res = Object.assign(hosts[mode], settings, {mode: mode}, {domain: domains[mode]}, {vuex_key: vuex_key})
+const res = Object.assign(hosts[mode], settings, {mode: mode, domain: domains[mode], vuex_key: vuex_key, project_name: projectName})
 export default res

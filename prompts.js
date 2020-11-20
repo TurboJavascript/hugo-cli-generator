@@ -1,5 +1,11 @@
 module.exports = [
   {
+    name: `addDefault`,
+    type: 'confirm',
+    message: '是否添加默认文件(默认添加）？',
+    default: true,
+  },
+  {
     name: `addRoute`,
     type: 'confirm',
     message: '是否添加路由配置(默认添加）？',

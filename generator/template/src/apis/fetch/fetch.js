@@ -2,13 +2,11 @@
  * 封装接口请求，初始化参数
  * @author  hugo
  */
-// store为实例化生成的
-// import sto from 'store'
 import config from '../../../config'
 import axios from './http'
 import axios1 from 'axios'
 import Cookies from 'js-cookie'
-// import LocalStorage from '@/util/localstorage.js'
+import LocalStorage from '@/util/localstorage.js'
 let crypto = require('crypto')
 
 class Fetch {
@@ -18,9 +16,10 @@ class Fetch {
     param['visit_info'] = {
       ver: config.version || '0.0.1', // 前端版本
       // lan: sto.get('i18n', 'zh'), // 中英文
-      from_genre: 'pi'
+      from_genre: 'default'
     }
-    param['session_id'] = Cookies.get(`${config.mode}_pi_auth`)
+
+    param['session_id'] = Cookies.get(`${config.mode}_${config.project_name}_auth`)
     return param
   }
 
@@ -95,10 +94,9 @@ class Fetch {
       let urlDel = url.replace(/.*localhost.*?\//, '').replace(/.*\.com\//, '').replace(/\?.*/, '') // eslint-disable-line
       key = urlDel.split('/').join('_')
     }
-    // 自定义缓存的地方
-    // let localstorage = new LocalStorage()
-    // localstorage.setAge(age)
-    // localstorage.set(key, data)
+    let localstorage = new LocalStorage()
+    localstorage.setAge(age)
+    localstorage.set(key, data)
   }
 
   // 使用缓存
@@ -111,19 +109,18 @@ class Fetch {
       let urlDel = url.replace(/.*localhost.*?\//, '').replace(/.*\.com\//, '').replace(/\?.*/, '') // eslint-disable-line
       key = urlDel.split('/').join('_')
     }
-    // let localstorage = new LocalStorage()
-    // let ress = localstorage.get(key)
-    // return ress
-    return null
+    let localstorage = new LocalStorage()
+    let ress = localstorage.get(key)
+    return ress
   }
 
   // 解密
-  decrypt (text) {
+  encrypt (text) {
     if (!text) {
       return ''
     }
     let algorithm = 'aes-256-ctr'
-    let password = '876543218765432187654321'
+    let password = '12345678123456781234567812345678'
     let piv = '1234567890123456'
     try {
       let cipher = crypto.createDecipheriv(algorithm, password, piv)
@@ -131,7 +128,7 @@ class Fetch {
       crypted += cipher.final('utf8')
       return crypted
     } catch (e) {
-      console.log(e)
+      // console.log(e)
     }
   }
 
@@ -140,7 +137,7 @@ class Fetch {
     let data = res.data
     if (data.data) {
       // 解密数据
-      // data.data = JSON.parse(this.decrypt(data.data))
+      // data.data = JSON.parse(this.encrypt(data.data))
     }
     return { status: true, data: data, headers: res.headers }
   }

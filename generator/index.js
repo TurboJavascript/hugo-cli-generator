@@ -36,9 +36,12 @@ module.exports = (api, options, rootOptions) => {
     fs.writeFileSync(mainPath, contentMain, { encoding: 'utf-8' })
   })
   // 往项目加入自定义文件
-  api.render('./template', {
-    ...options,
-  })
+  // 默认文件的添加
+  if (options['addBase']) {
+    api.render('./template', {
+      ...options,
+    })
+  }
   // 添加路由配置
   if (options['addRoute']) {
     const routeLine = `\nimport router from './router'\n`

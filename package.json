@@ -2,7 +2,7 @@
   "name": "vue-cli-plugin-hugo-generator",
   "description": "A vue-cli plugin",
   "authors": "hugo",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "main": "index.js",
   "keywords": [
     "vue",
